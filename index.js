@@ -1,6 +1,8 @@
+const { set } = require("express/lib/application");
+
 let RandomItem;
 let UnderScore = [];
-let GuessesLeft = 10;
+let GuessesLeft = 9;
 let LettersGuessed = new Set();
 
 const gameState = {
@@ -89,6 +91,8 @@ let levels = [
 console.log(levels);
 
 function randomSelect() {
+  LettersGuessed = new Set();
+  GuessesLeft = 9;
   let randomIndex = Math.floor(Math.random() * MyWords.length);
   RandomItem = MyWords[randomIndex];
   console.log("RandomItem is", RandomItem);
@@ -143,11 +147,11 @@ function guess(userGuess) {
   if (found) {
     if (UnderScore.includes("_")) {
       return `You Guessed the correct letter ${UnderScore}.  You have ${GuessesLeft} strikes left.\n${
-        levels[GuessesLeft - 1]
+        levels[9-GuessesLeft]
       }`;
     } else {
       gameState.theScore = gameState.theScore + 1; 
-      return `You guessed it!!! ${UnderScore}. YOU WIN!!!,${theScore} This is score`;
+      return `You guessed it!!! ${UnderScore}. YOU WIN!!!,${theScore} The score`;
       
     }
   } else {
@@ -156,9 +160,9 @@ function guess(userGuess) {
       gameState.theScore = gameState.theScore - 1;
       return `You lose!  ${UnderScore}.  The word was ${RandomItem}.`;
     } else {
-      console.log(GuessesLeft, levels[GuessesLeft - 1]);
+      console.log(GuessesLeft, levels[9-GuessesLeft]);
       return `You guessed the incorrect letter. You have ${GuessesLeft} strikes left.  ${UnderScore}.\n${
-        levels[GuessesLeft - 1]
+        levels[9-GuessesLeft]
       }`;
     }
   }

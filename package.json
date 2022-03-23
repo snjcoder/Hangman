@@ -4,7 +4,8 @@
   "description": "game of hangman",
   "main": "project1.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Neetha",
   "license": "ISC",
@@ -14,5 +15,14 @@
     "mongodb": "^4.4.1",
     "readline-sync": "^1.4.10",
     "underscore": "^1.13.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snjcoder/Hangman.git"
+  },
+  "bugs": {
+    "url": "https://github.com/snjcoder/Hangman/issues"
+  },
+  "homepage": "https://github.com/snjcoder/Hangman#readme"
 }

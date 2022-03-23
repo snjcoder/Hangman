@@ -1,9 +1,9 @@
 
 const express = require('express');
-const { randomSelect, guess, gameState} = require('./project1');
+const { randomSelect, guess, gameState} = require('./index.js');
 const app = express();
 
-const PORT = 7000;
+const PORT = 7100;
 app.use(express.json());
 
 app.listen(PORT, function () {
@@ -11,13 +11,13 @@ app.listen(PORT, function () {
 });
 
 
-// Link for Player Name curl http://localhost:7000/playerName -H 'Content-Type: application/json' -X POST -d '{"name":"bob", "emailId":"blah@email.com"}'
+// Link for Player Name curl http://localhost:7100/playerName -H 'Content-Type: application/json' -X POST -d '{"name":"bob", "emailId":"blah@email.com"}'
 
 app.post('/playerName', (req,res)=>{
   const data = req.body
   const name = data.name
   const emailId = data.emailId
-  res.send(`Hello, ${name}, you are email Id is ${emailId}`)
+  res.send(`Hello, ${name}, your email Id is ${emailId}`);
 });
 
 // CODE FOR STARTING THE GAME
@@ -25,8 +25,9 @@ app.post('/playerName', (req,res)=>{
 app.get('/startGame', (req, res) => {
   theScore = 0;
   let randomWord = randomSelect();
+  
   res.send(
-    `Welcome to the Hangman Game: Here is your First Word ${randomWord}: "curl http://localhost:7000/enterGuess?guess= "`
+    `Welcome to the Hangman Game: Here is your First Word ${randomWord}: "curl http://localhost:7100/enterGuess?guess= "`
   );
 });
 
@@ -38,7 +39,7 @@ app.get('/enterGuess', (req, res) => {
   res.send(response);
 });
 
-// SCORE FOR A GUESS link curl http://localhost:7000/score
+// SCORE FOR A GUESS link curl http://localhost:7100/score
 
 app.get('/score', (req, res) => {
   let theScore = gameState.theScore;
@@ -46,3 +47,6 @@ app.get('/score', (req, res) => {
   res.send(`the score is: ${theScore}, name is ${name}`);
 });
 
+app.get('/restart', (req, res) => {
+  res.send(`To continue the Game: "curl http://localhost:7100/startGame" `);
+});
