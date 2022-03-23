@@ -24,68 +24,68 @@ let MyWords = [
 ];
 
 let levels = [
-  ` --------\n   
-    |      |\n
-           |\n
-           |\n
-           |\n
-           |\n`,
+ `<pre> --------<br>   
+    |      |<br>
+           |<br>
+           |<br>
+           |<br>
+           |<br>`,
 
-  ` --------\n   
-    |      |\n
-    0      |\n
-           |\n
-           |\n
-           |\n`,
+ `<pre> --------<br>   
+    |      |<br>
+    0      |<br>
+           |<br>
+           |<br>
+           |<br>`,
 
-  ` --------\n   
-    |      |\n
-    0      |\n
-    |      |\n
-           |\n
-           |\n`,
+ `<pre> --------<br>   
+    |      |<br>
+    0      |<br>
+    |      |<br>
+           |<br>
+           |<br>`,
 
-  ` --------\n   
-    |      |\n
-    0      |\n
-    |      |\n
-    |      |\n
-           |\n`,
+ `<pre> --------<br>   
+    |      |<br>
+    0      |<br>
+    |      |<br>
+    |      |<br>
+           |<br>`,
 
-  ` --------\n   
-    |      |\n
-    0      |\n
-    |      |\n
-    |      |\n
-    |      |\n`,
+ `<pre> --------<br>   
+    |      |<br>
+    0      |<br>
+    |      |<br>
+    |      |<br>
+    |      |<br>`,
 
-  ` --------\n   
-    |      |\n
-    0      |\n
-   /|      |\n
-    |      |\n
-    |      |\n`,
+ `<pre> --------<br>   
+    |      |<br>
+    0      |<br>
+   /|      |<br>
+    |      |<br>
+    |      |<br>`,
 
-  ` --------\n   
-    |      |\n
-    0      |\n
-   /|\\     |\n
-    |      |\n
-    |      |\n`,
+ `<pre> --------<br>   
+    |      |<br>
+    0      |<br>
+   /|\\     |<br>
+    |      |<br>
+    |      |<br>`,
 
-  ` --------\n   
-    |      |\n
-    0      |\n
-   /|\\     |\n
-    |      |\n
-   \\|      |\n`,
+ `<pre> --------<br>   
+    |      |<br>
+    0      |<br>
+   /|\\     |<br>
+    |      |<br>
+   \\|      |<br>`,
 
-  ` --------\n   
-    |      |\n
-    0      |\n
-   /|\\     |\n
-    |      |\n
-   \\|/     |\n`,
+ `<pre> --------<br>   
+    |      |<br>
+    0      |<br>
+   /|\\     |<br>
+    |      |<br>
+   \\|/     |<br>`,
 ];
 
 console.log(levels);
@@ -146,12 +146,12 @@ function guess(userGuess) {
   }
   if (found) {
     if (UnderScore.includes("_")) {
-      return `You Guessed the correct letter ${UnderScore}.  You have ${GuessesLeft} strikes left.\n${
+      return `You Guessed the correct letter ${UnderScore}.  You have ${GuessesLeft} strikes left.<br>${
         levels[9-GuessesLeft]
       }`;
     } else {
       gameState.theScore = gameState.theScore + 1; 
-      return `You guessed it!!! ${UnderScore}. YOU WIN!!!,${theScore} The score`;
+      return `You guessed it!!! ${UnderScore}. YOU WIN!!!,${gameState.theScore} The score`;
       
     }
   } else {
@@ -161,7 +161,7 @@ function guess(userGuess) {
       return `You lose!  ${UnderScore}.  The word was ${RandomItem}.`;
     } else {
       console.log(GuessesLeft, levels[9-GuessesLeft]);
-      return `You guessed the incorrect letter. You have ${GuessesLeft} strikes left.  ${UnderScore}.\n${
+      return `You guessed the incorrect letter. You have ${GuessesLeft} strikes left.  ${UnderScore}.<br>${
         levels[9-GuessesLeft]
       }`;
     }

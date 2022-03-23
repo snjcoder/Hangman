@@ -17,10 +17,11 @@ app.post('/playerName', (req,res)=>{
   const data = req.body
   const name = data.name
   const emailId = data.emailId
+  gameState.name = name
   res.send(`Hello, ${name}, your email Id is ${emailId}`);
 });
 
-// CODE FOR STARTING THE GAME
+// CODE FOR STARTING THE GAME http://localhost:7100/startGame
 
 app.get('/startGame', (req, res) => {
   theScore = 0;
