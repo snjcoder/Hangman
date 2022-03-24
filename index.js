@@ -1,5 +1,3 @@
-const { set } = require("express/lib/application");
-
 let RandomItem;
 let UnderScore = [];
 let GuessesLeft = 9;
@@ -36,7 +34,6 @@ const letters = [
   "x",
   "y",
   "z",
-  " "
 ];
 
 let buttonArray = [];
@@ -50,17 +47,22 @@ for (let i = 0; i < letters.length; i++) {
 let html = buttonArray.join("");
 
 let MyWords = [
-  "otter",
-  "hippo",
-  "whale",
-  "dolphin",
-  "shark",
-  "polar bear",
-  "platypus",
-  "walrus",
-  "killer whale",
-  "seal",
-  "sea mink",
+  "datatype",
+  "variables",
+  "const",
+  "operators",
+  "objects",
+  "functions",
+  "strings",
+  "arrays",
+  "random",
+  "booleans",
+  "comparisons",
+  "math",
+  "switch",
+  "loop",
+  "break",
+  "modules",
 ];
 
 let levels = [
@@ -191,14 +193,14 @@ function guess(userGuess) {
       }`;
     } else {
       gameState.theScore = gameState.theScore + 1; 
-      return `You guessed it!!! ${UnderScore}. YOU WIN!!!,${gameState.theScore} The score`;
+      return `You guessed it!!! ${UnderScore}. YOU WIN!!!,The score ${gameState.theScore}`;
       
     }
   } else {
     GuessesLeft = GuessesLeft - 1;
     if (GuessesLeft <= 0) {
       gameState.theScore = gameState.theScore - 1;
-      return `You lose!  ${UnderScore}.  The word was ${RandomItem}.`;
+      return `You lose!  ${UnderScore}.  The word was ${RandomItem}, The score ${gameState.theScore}.`;
     } else {
       console.log(GuessesLeft, levels[9-GuessesLeft]);
       return `You guessed the incorrect letter. You have ${GuessesLeft} strikes left.  ${UnderScore}.<br> <br>${html}.<br>${
