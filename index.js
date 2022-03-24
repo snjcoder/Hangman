@@ -194,14 +194,14 @@ function guess(userGuess) {
       }`;
     } else {
       gameState.theScore = gameState.theScore + 1; 
-      return `You guessed it!!! ${UnderScore}. YOU WIN!!!,The score is ${gameState.theScore}`;
+      return `You guessed it!!! ${UnderScore}. YOU WIN!!!, <a href = "http://localhost:7100/score">The Score</a>`;
       
     }
   } else {
     GuessesLeft = GuessesLeft - 1;
     if (GuessesLeft <= 0) {
       gameState.theScore = gameState.theScore - 1;
-      return `You lose!  ${UnderScore}. The word was ${RandomItem}, The score is ${gameState.theScore}`;
+      return `You lose!  ${UnderScore}. The word was ${RandomItem}, <a href = "http://localhost:7100/score">The Score</a>`;
     } else {
       console.log(GuessesLeft, levels[9-GuessesLeft]);
       return `You guessed the incorrect letter. You have ${GuessesLeft} strikes left.  ${UnderScore}.<br> <br>${html}.<br>${

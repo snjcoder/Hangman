@@ -27,7 +27,7 @@ app.get('/startGame', (req, res) => {
   theScore = 0;
   let randomWord = randomSelect();
   res.send(
-    `Welcome to the Hangman Game: Here is your First Word ${randomWord}: guess the letter ${html}`
+    `Here is your First Word ${randomWord}: guess the letter ${html}`
   );
 });
 
@@ -44,7 +44,7 @@ app.get('/enterGuess', (req, res) => {
 app.get('/score', (req, res) => {
   let theScore = gameState.theScore;
   let name = gameState.name;
-  res.send(`the score is: ${theScore}, name is ${name}`);
+  res.send(`the score is: ${theScore}, name is ${name}: To continue the Game: <a href= "http://localhost:7100/startGame">Play Again</a>`);
 });
 
 app.get('/restart', (req, res) => {
