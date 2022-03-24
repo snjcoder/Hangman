@@ -48,5 +48,5 @@ app.get('/score', (req, res) => {
 });
 
 app.get('/restart', (req, res) => {
-  res.send(`To continue the Game: "curl http://localhost:7100/startGame" `);
+  res.send(`To continue the Game: <a href= "http://localhost:7100/startGame">play Again</a> `);
 });

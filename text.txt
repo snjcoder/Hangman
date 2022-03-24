@@ -1,0 +1,7 @@
+playerName = " http://localhost:7100/playerName?name= "
+
+startGame = " http://localhost:7100/startGame "
+
+enterguess = " http://localhost:7100/enterGuess?guess= "
+
+score = " http://localhost:7100/score "

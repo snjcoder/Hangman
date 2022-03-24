@@ -7,6 +7,7 @@ const gameState = {
   theScore: 0,
   name: "",
 };
+
 const letters = [
   "a",
   "b",
@@ -193,14 +194,14 @@ function guess(userGuess) {
       }`;
     } else {
       gameState.theScore = gameState.theScore + 1; 
-      return `You guessed it!!! ${UnderScore}. YOU WIN!!!,The score ${gameState.theScore}`;
+      return `You guessed it!!! ${UnderScore}. YOU WIN!!!,The score is ${gameState.theScore}`;
       
     }
   } else {
     GuessesLeft = GuessesLeft - 1;
     if (GuessesLeft <= 0) {
       gameState.theScore = gameState.theScore - 1;
-      return `You lose!  ${UnderScore}.  The word was ${RandomItem}, The score ${gameState.theScore}.`;
+      return `You lose!  ${UnderScore}. The word was ${RandomItem}, The score is ${gameState.theScore}`;
     } else {
       console.log(GuessesLeft, levels[9-GuessesLeft]);
       return `You guessed the incorrect letter. You have ${GuessesLeft} strikes left.  ${UnderScore}.<br> <br>${html}.<br>${
