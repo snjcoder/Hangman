@@ -1,7 +1,8 @@
 
 const express = require('express');
-const { randomSelect, guess, gameState} = require('./index.js');
+const { randomSelect, guess, gameState, html} = require('./index.js');
 const app = express();
+
 
 const PORT = 7100;
 app.use(express.json());
@@ -10,25 +11,23 @@ app.listen(PORT, function () {
   console.log(`Listening on port ${PORT}`);
 });
 
+// PLAYER NAME curl link curl http://localhost:7100/playerName?name="
 
-// Link for Player Name curl http://localhost:7100/playerName -H 'Content-Type: application/json' -X POST -d '{"name":"bob", "emailId":"blah@email.com"}'
-
-app.post('/playerName', (req,res)=>{
-  const data = req.body
-  const name = data.name
-  const emailId = data.emailId
-  gameState.name = name
-  res.send(`Hello, ${name}, your email Id is ${emailId}`);
+app.get("/playerName", (req, res) => {
+  let name = req.query.name;
+  gameState.name = name;
+  res.send(
+    `Hello ${name}, Welcome to the Hangman Game : <a href = "http://localhost:7100/startGame"</a>`
+  );
 });
 
-// CODE FOR STARTING THE GAME http://localhost:7100/startGame
+// CODE FOR STARTING THE GAME curl http://localhost:7100/startGame
 
 app.get('/startGame', (req, res) => {
   theScore = 0;
   let randomWord = randomSelect();
-  
   res.send(
-    `Welcome to the Hangman Game: Here is your First Word ${randomWord}: "curl http://localhost:7100/enterGuess?guess= "`
+    `Welcome to the Hangman Game: Here is your First Word ${randomWord}: guess the letter ${html}`
   );
 });
 

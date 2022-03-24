@@ -9,6 +9,45 @@ const gameState = {
   theScore: 0,
   name: "",
 };
+const letters = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+
+let buttonArray = [];
+for (let i = 0; i < letters.length; i++) {
+  let button = `<a href="http://localhost:7100/enterGuess?guess=${letters[i]}">
+    <button>${letters[i]}</button>
+    </a>`;
+  buttonArray.push(button);
+
+}
+let html = buttonArray.join("");
+
 let MyWords = [
   "otter",
   "hippo",
@@ -146,7 +185,7 @@ function guess(userGuess) {
   }
   if (found) {
     if (UnderScore.includes("_")) {
-      return `You Guessed the correct letter ${UnderScore}.  You have ${GuessesLeft} strikes left.<br>${
+      return `You Guessed the correct letter ${UnderScore}.<br> <br>${html}  You have ${GuessesLeft} strikes left.<br>${
         levels[9-GuessesLeft]
       }`;
     } else {
@@ -161,11 +200,11 @@ function guess(userGuess) {
       return `You lose!  ${UnderScore}.  The word was ${RandomItem}.`;
     } else {
       console.log(GuessesLeft, levels[9-GuessesLeft]);
-      return `You guessed the incorrect letter. You have ${GuessesLeft} strikes left.  ${UnderScore}.<br>${
+      return `You guessed the incorrect letter. You have ${GuessesLeft} strikes left.  ${UnderScore}.<br> <br>${html}.<br>${
         levels[9-GuessesLeft]
       }`;
     }
   }
 }
 
-module.exports = { guess, randomSelect,gameState };
+module.exports = { guess, randomSelect, gameState, html};
