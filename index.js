@@ -36,6 +36,7 @@ const letters = [
   "x",
   "y",
   "z",
+  " "
 ];
 
 let buttonArray = [];

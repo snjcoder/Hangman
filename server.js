@@ -17,7 +17,7 @@ app.get("/playerName", (req, res) => {
   let name = req.query.name;
   gameState.name = name;
   res.send(
-    `Hello ${name}, Welcome to the Hangman Game : <a href = "http://localhost:7100/startGame"</a>`
+    `Hello ${name}, Welcome to the Hangman Game : <a href = "http://localhost:7100/startGame">Start Game</a>`
   );
 });
 
