@@ -17,7 +17,13 @@ app.get("/playerName", (req, res) => {
   let name = req.query.name;
   gameState.name = name;
   res.send(
-    `Hello ${name}, Welcome to the Hangman Game : <a href = "http://localhost:7100/startGame">Start Game</a>`
+    `Hello ${name},<br>
+    <input id="string" required />
+    <a id="link"><button>Go</button></a>
+    <script> let stringInput = document.getElementById('string')
+        stringInput.addEventListener('keyup', (e)=>{
+            let link = document.getElementById('link')
+            link.setAttribute('href','http://localhost:7100/playerName?name='+e.target.value)})</script><br> Welcome to the Hangman Game :<a href = "http://localhost:7100/startGame">Start Game</a>`
   );
 });
 

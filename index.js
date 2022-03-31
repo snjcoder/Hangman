@@ -48,22 +48,22 @@ for (let i = 0; i < letters.length; i++) {
 let html = buttonArray.join("");
 
 let MyWords = [
-  "datatype",
-  "variables",
-  "const",
-  "operators",
-  "objects",
-  "functions",
-  "strings",
   "arrays",
-  "random",
   "booleans",
-  "comparisons",
-  "math",
-  "switch",
-  "loop",
   "break",
+  "comparisons",
+  "const",
+  "datatype",
+  "functions",
+  "loop",
+  "math",
   "modules",
+  "objects",
+  "operators",
+  "random",
+  "strings",
+  "switch",
+  "variables",
 ];
 
 let levels = [
@@ -212,3 +212,6 @@ function guess(userGuess) {
 }
 
 module.exports = { guess, randomSelect, gameState, html};
+
+
+
