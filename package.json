@@ -16,7 +16,6 @@
     "readline-sync": "^1.4.10",
     "underscore": "^1.13.2"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/snjcoder/Hangman.git"
